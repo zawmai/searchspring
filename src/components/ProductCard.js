@@ -22,9 +22,13 @@ const useStyles = makeStyles({
   },
   price: {
     padding: '0 0 0 10px',
+    fontSize: 16,
+    fontWeight: 700,
+    color: '#3a23ad'
   },
   msrp: {
     textDecoration: 'line-through',
+    fontSize: 16,
   }
 });
 
@@ -33,7 +37,7 @@ function ProductCard(props) {
   const classes = useStyles();
 
   // Nested destructe of product props for name and image url
-  const {product: {  name, thumbnailImageUrl } } = props;
+  const {product: {  id, name, thumbnailImageUrl } } = props;
 
   // append 2 decimals to msrp and price
   const price = Number(props.product.price).toFixed(2);
@@ -47,16 +51,16 @@ function ProductCard(props) {
   );
 
   return (
-    <Card className={classes.root} elevation={3} variant='outlined'>
+    <Card key={id} className={classes.root} elevation={3} variant='outlined'>
       <CardMedia
         className={classes.media}
         image={thumbnailImageUrl}
         title={name}
       />
       <CardContent>
-        <Typography className={classes.name} variant="body1" display="block "align="center" color="textPrimary" component="p">
-          {name}
-        </Typography>
+          <Typography className={classes.name} variant="body1" display="block "align="center" color="textPrimary" component="p">
+            {name}
+          </Typography>
         <Box display="flex" justifyContent="center">
           {priceBoxContent}
         </Box>
