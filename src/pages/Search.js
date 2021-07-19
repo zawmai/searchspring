@@ -2,7 +2,9 @@ import { useState } from 'react';
 import MockProducts from '../mockData.json';
 import ProductCard from '../components/ProductCard';
 import Gallery from '../components/Gallery';
+import SearchBar from '../components/SearchBar';
 import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles({
   root: {
@@ -20,11 +22,12 @@ function Search(props) {
 
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <Grid container className={classes.root}>
+      <SearchBar />
       <Gallery>
         {productCards}
       </Gallery>
-    </div>
+    </Grid>
   );
 }
 
