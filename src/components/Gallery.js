@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Grid from '@material-ui/core/Grid';
 
 function Gallery(props) {
   return (
