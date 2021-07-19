@@ -2,7 +2,9 @@
 
 ## UI Requirements
 
-- Input Box w/ a Search button next to it
+### Components
+
+- TextInput Box w/ a Search button next to it
 - Grid Container of Product Cards
 - Each Product Card Contains the following details:
   - Product Name
@@ -14,6 +16,6 @@
   - 1,2,3...N Pages Buttons
   - Next Page Button
 
-## UI Logic
+### Logic
 
 - IF
