@@ -11,6 +11,8 @@ const useStyles = makeStyles({
 });
 
 function Search(props) {
+
+  // Create ProductCard components with data
   const [products, setProducts] = useState(MockProducts.data);
   const productCards = products.map((product) => 
     <ProductCard product={product}/>
