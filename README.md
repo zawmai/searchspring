@@ -1,11 +1,19 @@
 # SearchSpring Interview Assigment
 
+Made with create-react-app. Read more on how to run the app [here](https://github.com/facebook/create-react-app#create-react-app--).
+
 **Objective:** Build a Search Page with Pagination with [SearchSpring's API](https://searchspring.zendesk.com/hc/en-us/sections/115000119223-Search-API).  
-**Sample Request for the Search API:**  http://scmq7n.a.searchspring.io/api/search/search.json?siteId=scmq7n&q=jeans&resultsFormat=native&page=2  
+
+**Sample Request URL for the Search API:**  
+http://scmq7n.a.searchspring.io/api/search/search.json?siteId=scmq7n&q=jeans&resultsFormat=native&page=2  
+
 **Request Query Parameters to Use:** "siteId", "q", "resultsFormat", and "page"  
+
 **Note**:  
 
-Made with create-react-app. Read more on how to run the app [here](https://github.com/facebook/create-react-app#create-react-app--).
+- Look at full-integration sample [here](http://try.searchspring.com/search?q=jeans)
+- Filter and sorting features not required.
+- Use "resultFormat=native" query parameter to get response body as JSON.
 
 ## UI Requirements
 
