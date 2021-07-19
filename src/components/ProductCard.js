@@ -31,14 +31,17 @@ const useStyles = makeStyles({
 function ProductCard(props) {
   // MatrialUI style hook function
   const classes = useStyles();
-  
+
+  // Nested destructe of product props for name and image url
+  const {product: {  name, thumbnailImageUrl } } = props;
+
   // append 2 decimals to msrp and price
   const price = Number(props.product.price).toFixed(2);
   const msrp = Number(props.product.msrp).toFixed(2);
 
   // Display msrp crossed out if msrp is greater than price
   // else only display price
-  const priceBoxContent = (msrp > price 
+  const priceBoxContent = (msrp && price && (msrp > price) 
     ? <React.Fragment><span className={classes.msrp}>${msrp}</span><span className={classes.price}>${price}</span></React.Fragment>
     : <span>${price}</span>
   );
@@ -47,12 +50,12 @@ function ProductCard(props) {
     <Card className={classes.root} elevation={3} variant='outlined'>
       <CardMedia
         className={classes.media}
-        image={props.product.thumbnailImageUrl}
-        title={props.product.name}
+        image={thumbnailImageUrl}
+        title={name}
       />
       <CardContent>
         <Typography className={classes.name} variant="body1" display="block "align="center" color="textPrimary" component="p">
-          {props.product.name}
+          {name}
         </Typography>
         <Box display="flex" justifyContent="center">
           {priceBoxContent}
