@@ -36,6 +36,7 @@ http://scmq7n.a.searchspring.io/api/search/search.json?siteId=scmq7n&q=jeans&res
 - If on the first page, then hide or disable the previous-page button
 - If on the last page, then hide or disable the next-page button.
 - When N-Page is clicked, then make a request with "page" parameter for the desired page.
+- Display product results when someone types into searchbar and click the search button
 
 ### Wireframe
 
