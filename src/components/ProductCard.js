@@ -1,11 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
 
 
 const useStyles = makeStyles({
@@ -24,15 +24,25 @@ const useStyles = makeStyles({
   price: {
     padding: '0 0 0 10px',
   },
-
+  msrp: {
+    textDecoration: 'line-through',
+  }
 });
 
 function ProductCard(props) {
   // MatrialUI style hook function
   const classes = useStyles();
-  // append 2 decimals 
+  
+  // append 2 decimals to msrp and price
   const price = Number(props.product.price).toFixed(2);
   const msrp = Number(props.product.msrp).toFixed(2);
+
+  // Display msrp crossed out if msrp is greater than price
+  // else only display price
+  const priceBoxContent = (msrp > price 
+    ? <React.Fragment><span className={classes.msrp}>${msrp}</span><span className={classes.price}>${price}</span></React.Fragment>
+    : <span>${price}</span>
+  );
 
   return (
     <Card className={classes.root} elevation={3} variant='outlined'>
@@ -46,8 +56,7 @@ function ProductCard(props) {
           {props.product.name}
         </Typography>
         <Box display="flex" justifyContent="center">
-          <span>${price}</span>
-          <span className={classes.price}>${msrp}</span>
+          {priceBoxContent}
         </Box>
       </CardContent>
     </Card>
