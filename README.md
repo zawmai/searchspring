@@ -2,7 +2,7 @@
 
 Made with create-react-app. Read more on how to run the app [here](https://github.com/facebook/create-react-app#create-react-app--).
 
-**Objective:** Build a Search Page with Pagination with [SearchSpring's API](https://searchspring.zendesk.com/hc/en-us/sections/115000119223-Search-API).  
+**Objective:** Build a Search Page with Pagination with [SearchSpring's Search API](https://searchspring.zendesk.com/hc/en-us/sections/115000119223-Search-API).  
 
 **Sample Request URL for the Search API:**  
 http://scmq7n.a.searchspring.io/api/search/search.json?siteId=scmq7n&q=jeans&resultsFormat=native&page=2  
