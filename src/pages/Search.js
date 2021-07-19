@@ -9,7 +9,10 @@ import Grid from '@material-ui/core/Grid';
 const useStyles = makeStyles({
   root: {
     padding: '40px 20px 40px 20px'
-  }
+  },
+  searchBar: {
+    margin: '0 0 40px 0',
+  },
 });
 
 function Search(props) {
@@ -23,7 +26,7 @@ function Search(props) {
   const classes = useStyles();
   return (
     <Grid container className={classes.root}>
-      <SearchBar />
+      <SearchBar className={classes.searchBar}/>
       <Gallery>
         {productCards}
       </Gallery>
