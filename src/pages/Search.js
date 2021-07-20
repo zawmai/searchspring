@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import MockProducts from '../mockData.json';
-import ProductCard from '../components/ProductCard';
-import Gallery from '../components/Gallery';
-import SearchBar from '../components/SearchBar';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+import MockProducts from '../mockData.json';
+import SearchBar from '../components/SearchBar';
+import Gallery from '../components/Gallery';
+import ProductCard from '../components/ProductCard';
+import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles({
   root: {
@@ -27,12 +27,12 @@ function Search(props) {
 
   const classes = useStyles();
   return (
-    <Grid container className={classes.root}>
+    <Container maxWidth="md" className={classes.root}>
       <SearchBar className={classes.searchBar}/>
       <Gallery>
         {productCards}
       </Gallery>
-    </Grid>
+    </Container>
   );
 }
 
