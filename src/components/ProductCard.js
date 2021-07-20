@@ -37,7 +37,7 @@ function ProductCard(props) {
   const classes = useStyles();
 
   // Nested destructe of product props for name and image url
-  const {product: {  id, name, thumbnailImageUrl } } = props;
+  const {product: { name, thumbnailImageUrl } } = props;
 
   // append 2 decimals to msrp and price
   const price = Number(props.product.price).toFixed(2);
@@ -51,7 +51,7 @@ function ProductCard(props) {
   );
 
   return (
-    <Card key={id} className={classes.root} elevation={3} variant='outlined'>
+    <Card className={classes.root} elevation={3} variant='outlined'>
       <CardMedia
         className={classes.media}
         image={thumbnailImageUrl}
