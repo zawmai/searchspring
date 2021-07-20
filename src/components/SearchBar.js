@@ -8,7 +8,7 @@ const useStyles = makeStyles({
   searchTextInput: {
     maxWidth: 600,
     minWidth: 260,
-    width: '70vw',
+    width: '60vw',
 
   },
   searchButton: {
