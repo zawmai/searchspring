@@ -9,7 +9,6 @@ const useStyles = makeStyles({
     maxWidth: 600,
     minWidth: 260,
     width: '60vw',
-
   },
   searchButton: {
     margin: '0 0 0 20px',
