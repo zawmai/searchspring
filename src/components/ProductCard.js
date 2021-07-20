@@ -58,7 +58,7 @@ function ProductCard(props) {
         title={name}
       />
       <CardContent>
-          <Typography className={classes.name} variant="body1" display="block "align="center" color="textPrimary" component="p">
+          <Typography className={classes.name} variant="body1" align="center" color="textPrimary" component="p">
             {name}
           </Typography>
         <Box display="flex" justifyContent="center">
