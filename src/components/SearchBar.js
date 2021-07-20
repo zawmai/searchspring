@@ -1,32 +1,35 @@
 import * as React from 'react';
 import { makeStyles } from '@material-ui/core';
-import Grid from '@material-ui/core/Grid'
-import TextField from '@material-ui/core/TextField';
+import Paper from '@material-ui/core/Paper'
 import Button from '@material-ui/core/Button';
 
+import InputBase from '@material-ui/core/InputBase';
+
 const useStyles = makeStyles({
-  searchTextInput: {
-    maxWidth: 600,
+  root: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: '0 0 0 10px',
+    maxWidth: 500,
     minWidth: 260,
-    width: '60vw',
+    width: '100%',
   },
-  searchButton: {
-    margin: '0 0 0 20px',
-    padding: '12px 16px 12px 16px',
+  input: {
+    flex: 1,
+  },
+  submit: {
+    borderTopLeftRadius: 0,
+    borderBottomLeftRadius: 0,
   }
 });
 
 function SearchBar(props) {
   const classes = useStyles();
   return (
-    <Grid className={props.className} container alignItems="center" justifyContent="center">
-      <form noValidate autoComplete="off">
-        <Grid container alignItems="center" justifyContent="center">
-          <TextField className={classes.searchTextInput} required id="searchTextField" placeholder="Search keywords here" variant="outlined" />
-          <Button className={classes.searchButton} variant="contained" color="primary">Search</Button>
-        </Grid>
-      </form>
-    </Grid>
+    <Paper className={classes.root} component="form" elevation={3} noValidate autoComplete="off">
+      <InputBase className={classes.input} required id="searchTextField" placeholder="Search Product Keywords" variant="outlined" inputProps={{ 'aria-label': 'search product keywords' }} />
+      <Button className={classes.submit} variant="contained" color="primary" type="submit" name="search_text_button" aria-label="search">Search</Button>
+    </Paper>
   );
 }
 
