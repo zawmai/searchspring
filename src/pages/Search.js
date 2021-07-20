@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import MockProducts from '../mockData.json';
 import ProductCard from '../components/ProductCard';
 import Gallery from '../components/Gallery';
@@ -20,7 +20,9 @@ function Search(props) {
   // Create ProductCard components with data
   const [products, setProducts] = useState(MockProducts.data);
   const productCards = products.map((product) => 
-    <ProductCard product={product}/>
+    <React.Fragment key={product.id}>
+      <ProductCard product={product}/>
+    </React.Fragment>
   );
 
   const classes = useStyles();
