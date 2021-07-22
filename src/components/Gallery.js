@@ -8,7 +8,7 @@ function Gallery(props) {
         <React.Fragment key={product.id}>
           <ProductCard product={product}/>
         </React.Fragment>))
-    : <p>No Products Found. Please search different keywords =).</p>;
+    : <p><strong>No Products Found. Please search different keywords =).</strong></p>;
   
   return (
     <React.Fragment>
