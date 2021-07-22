@@ -38,7 +38,7 @@ function SearchBar(props) {
   const inputOptions = {
     required: 'Required: Please enter one or more keywords to search.',
     pattern: {
-      value: /^[A-Za-z0-9]+[A-Za-z0-9\s]*$/,
+      value: /^[A-Za-z0-9]+[A-Za-z0-9\s/-]*$/,
       message: 'Invalid Keywords(s): Letters and Digits only'
     }
   };
