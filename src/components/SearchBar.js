@@ -18,6 +18,8 @@ const useStyles = makeStyles({
     flex: 1,
   },
   errorMessage: {
+    flexBasis: '100%',
+    textAlign: 'center',
     color: 'red'
   },
   submit: {
