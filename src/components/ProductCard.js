@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 
-
+/** MaterialUI style hook to make CSS rules object */
 const useStyles = makeStyles({
   root: {
     maxWidth: 267,
@@ -32,14 +32,28 @@ const useStyles = makeStyles({
   }
 });
 
+
+/**
+ * Card component containing image, text, price and msrp.
+ * 
+ * @param {
+ *  product: {
+ *    name: string,
+ *    thumbnailImageUrl: string,
+ *    price: string,
+ *    msrp: string,
+ *  }
+ * } props 
+ * @returns React JSX Component
+ */
 function ProductCard(props) {
-  // MatrialUI style hook function
+  /** Create CSS style strings with MaterialUI CSS rules */
   const classes = useStyles();
 
-  // Nested destructe of product props for name and image url
+  /** Destructure product's name and image URL from props */
   const {product: { name, thumbnailImageUrl } } = props;
 
-  // append 2 decimals to msrp and price
+  /** Round prouduct's price and msrp to two decimals */
   const price = Number(props.product.price).toFixed(2);
   const msrp = Number(props.product.msrp).toFixed(2);
 

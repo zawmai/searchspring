@@ -1,6 +1,21 @@
 import * as React from 'react';
 import Pagination from '@material-ui/lab/Pagination'
 
+
+/**
+ * Controlled pagination component with previous-page and next-page buttons
+ * Uses MaterialUI's pagination component and its onChange callback to lift
+ * the state to parent component.
+ * 
+ * @param {
+ *  data: {
+ *    onPageChange: function,
+ *    currentPage: number,
+ *    totalPages: number,
+ *  }
+ * } props 
+ * @returns React JSX Component
+ */
 function PageNav(props) {
   
   return (

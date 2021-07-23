@@ -7,25 +7,36 @@ import SearchBar from '../components/SearchBar';
 import Gallery from '../components/Gallery';
 import PageNav from '../components/PageNav';
 
-
+/** MaterialUI style hook to make CSS rules object */
 const useStyles = makeStyles({
   root: {
     padding: '40px 20px 40px 20px',
   }
 });
 
+/**
+ * Search page component with search bar, product gallery and pagination.
+ * 
+ * @state {
+ *  data: object
+ *  params: ojbect
+ * } 
+ * @param {*} props 
+ * @returns React JSX Component
+ */
 function Search(props) {
 
-  // Create ProductCard components with data
-  const [data, setData] = useState({}); // request data state
-  const [params, setParams] = useState({ // request parameter state
+  /** State: API response body data */
+  const [data, setData] = useState({}); 
+  /** State: API request url parameters object */
+  const [params, setParams] = useState({ 
     "siteId": "scmq7n",
     "resultsFormat": "native",
     "q": "",
     "page": "1"
   })
 
-  // API call when params state change
+  /** Effect Hook: Perform GET request when parameters object changes */
   useEffect(() =>{
     const base = "https://" + params.siteId + ".a.searchspring.io/api/search/search.json?";
     const reqUrl = base + (new URLSearchParams(params)).toString();
@@ -36,7 +47,7 @@ function Search(props) {
       });
   }, [params]);
 
-  // set q params when on searchbar valid submit
+  /** Callback function: Set q property in parameters object on valid submit event */
   const handleSubmit = (inputs, event) => {
     setParams({
       ...params,
@@ -44,7 +55,7 @@ function Search(props) {
     });
   };
 
-  // set p params to navigated to requested page
+  /** Callback function: Set page property in parameters object on page change */
   const handlePageChange = (event, page) => {
     setParams({
       ...params,
@@ -52,7 +63,9 @@ function Search(props) {
     })
   };
 
+  /** Create CSS style strings with MaterialUI CSS rules */
   const classes = useStyles();
+
   return (
     <Container maxWidth="md" className={classes.root}>
       <Section>
