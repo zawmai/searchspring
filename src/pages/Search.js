@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Section from '../components/Section';
 import Container from '@material-ui/core/Container';
+import Section from '../components/Section';
 import SearchBar from '../components/SearchBar';
 import Gallery from '../components/Gallery';
-import { useEffect } from 'react';
+import PageNav from '../components/PageNav';
 
 
 const useStyles = makeStyles({
@@ -17,24 +18,36 @@ function Search(props) {
 
   // Create ProductCard components with data
   const [data, setData] = useState({});
+  const [params, setParams] = useState({
+    "siteId": "scmq7n",
+    "resultsFormat": "native",
+    "q": "",
+    "page": "1"
+  })
 
-  const handleSubmit = (inputs, event) => {
-    var  siteId = "scmq7n";
-    const base = "https://" + siteId + ".a.searchspring.io/api/search/search.json?";
-    const params = {
-      "siteId": siteId,
-      "resultsFormat": "native",
-      "q": inputs.searchText
-    } 
-
-    var reqUrl = base + (new URLSearchParams(params)).toString();
+  useEffect(() =>{
+    const base = "https://" + params.siteId + ".a.searchspring.io/api/search/search.json?";
+    const reqUrl = base + (new URLSearchParams(params)).toString();
     fetch(reqUrl)
       .then(res => res.json())
       .then((jsonData) => {
         setData(jsonData);
         console.log(jsonData);
       });
-    console.log(inputs);
+  }, [params]);
+
+  const handleSubmit = (inputs, event) => {
+    setParams({
+      ...params,
+      "q": inputs.searchText,
+    });
+  };
+
+  const handlePageChange = (event, page) => {
+    setParams({
+      ...params,
+      "page": page,
+    })
   };
 
   const classes = useStyles();
@@ -45,6 +58,9 @@ function Search(props) {
       </Section>
       <Section>
         <Gallery products={data.results}/>
+      </Section>
+      <Section>
+        <PageNav data={data.pagination} onPageChange={handlePageChange}/>
       </Section>
     </Container>
   );
