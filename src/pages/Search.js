@@ -17,14 +17,15 @@ const useStyles = makeStyles({
 function Search(props) {
 
   // Create ProductCard components with data
-  const [data, setData] = useState({});
-  const [params, setParams] = useState({
+  const [data, setData] = useState({}); // request data state
+  const [params, setParams] = useState({ // request parameter state
     "siteId": "scmq7n",
     "resultsFormat": "native",
     "q": "",
     "page": "1"
   })
 
+  // API call when params state change
   useEffect(() =>{
     const base = "https://" + params.siteId + ".a.searchspring.io/api/search/search.json?";
     const reqUrl = base + (new URLSearchParams(params)).toString();
@@ -32,10 +33,10 @@ function Search(props) {
       .then(res => res.json())
       .then((jsonData) => {
         setData(jsonData);
-        console.log(jsonData);
       });
   }, [params]);
 
+  // set q params when on searchbar valid submit
   const handleSubmit = (inputs, event) => {
     setParams({
       ...params,
@@ -43,6 +44,7 @@ function Search(props) {
     });
   };
 
+  // set p params to navigated to requested page
   const handlePageChange = (event, page) => {
     setParams({
       ...params,
