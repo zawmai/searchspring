@@ -4,7 +4,6 @@ const app = express();
 const port = 3002;
 
 app.use('/', express.static(path.join(__dirname, 'build')));
-app.use('/static/', express.static(path.join(__dirname, 'build/static/')));
 
 app.get('/', (req, res) => {
   try {
