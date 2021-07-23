@@ -51,6 +51,7 @@ function Search(props) {
   const handleSubmit = (inputs, event) => {
     setParams({
       ...params,
+      "page": 1,
       "q": inputs.searchText,
     });
   };
