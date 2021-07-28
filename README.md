@@ -1,6 +1,7 @@
 # SearchSpring Interview Assigment
 
 Made with create-react-app. Read more on how to run the app [here](https://github.com/facebook/create-react-app#create-react-app--).
+See the live demo [here](https://demos.zawmai.com/searchspring/). 
 
 **Objective:** Build a Search Page with Pagination with [SearchSpring's Search API](https://searchspring.zendesk.com/hc/en-us/sections/115000119223-Search-API).  
 
