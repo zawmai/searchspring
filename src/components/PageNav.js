@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Pagination from '@material-ui/lab/Pagination'
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 
 /**
@@ -17,14 +18,18 @@ import Pagination from '@material-ui/lab/Pagination'
  * @returns React JSX Component
  */
 function PageNav(props) {
-  
+  const isLarge = useMediaQuery('(min-width:460px)');
+  const isMedium = useMediaQuery('(min-width:390px)');
+
   return (
     <React.Fragment>
       <Pagination 
         onChange={props.onPageChange} 
         page={props.data && props.data.currentPage ? props.data.currentPage : 1} 
         count={props.data && props.data.totalPages ? props.data.totalPages : 1} 
-        size='large' shape='rounded' />
+        size={isLarge ? 'large' : (isMedium ? 'medium' : 'small')}
+        shape='rounded' 
+      />
     </React.Fragment>
   );
 }
