@@ -73,10 +73,10 @@ function Search(props) {
         <SearchBar onValidSubmit={handleSubmit} onInvalidSubmit={null} />
       </Section>
       <Section>
-        <Gallery products={data.results}/>
+        <PageNav data={data.pagination} onPageChange={handlePageChange}/>
       </Section>
       <Section>
-        <PageNav data={data.pagination} onPageChange={handlePageChange}/>
+        <Gallery products={data.results}/>
       </Section>
     </Container>
   );
