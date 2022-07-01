@@ -1,18 +1,11 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import Container from '@mui/material/Container';
+import { styled } from '@mui/system';
 import Section from '../components/Section';
 import SearchBar from '../components/SearchBar';
 import Gallery from '../components/Gallery';
 import PageNav from '../components/PageNav';
-
-/** MaterialUI style hook to make CSS rules object */
-const useStyles = makeStyles({
-  root: {
-    padding: '40px 20px 40px 20px',
-  }
-});
 
 /**
  * Search page component with search bar, product gallery and pagination.
@@ -64,11 +57,17 @@ function Search(props) {
     })
   };
 
-  /** Create CSS style strings with MaterialUI CSS rules */
-  const classes = useStyles();
+  /** Utility to make styled component */
+  const StyledContainer = styled(Container, {
+    name: "StyledContainer",
+    slot: "wrapper"
+  })({
+    padding: "40px 20px 40px 20px",
+  });
+
 
   return (
-    <Container maxWidth="md" className={classes.root}>
+    <StyledContainer maxWidth="md">
       <Section>
         <SearchBar onValidSubmit={handleSubmit} onInvalidSubmit={null} />
       </Section>
@@ -78,7 +77,7 @@ function Search(props) {
       <Section>
         <Gallery products={data.results}/>
       </Section>
-    </Container>
+    </StyledContainer>
   );
 }
 
