@@ -1,13 +1,11 @@
 import * as React from 'react';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@mui/material/Grid';
+import { styled } from '@mui/system';
 
-/** MaterialUI style hook to make CSS rules object */
-const useStyles = makeStyles({
-  root: {
-    margin: '0 0 40px 0',
-  }
-});
+/** MaterialUI styled component w/ emotion styling engine to make CSS rules object */
+const StyledGrid = styled(Grid)({
+  margin: '0 0 40px 0',
+})
 
 /**
  * Container wrapper component using CSS Flex
@@ -18,12 +16,10 @@ const useStyles = makeStyles({
  * @returns React JSX Component
  */
 function Section(props) {
-  /** Create CSS style strings with MaterialUI CSS rules */
-  const classes = useStyles();
   return (
-    <Grid className={classes.root} container justifyContent="space-around" alignContent="space-between">
+    <StyledGrid container justifyContent="space-around" alignContent="space-between">
         {props.children}
-    </Grid>
+    </StyledGrid>
   );
 }
 
