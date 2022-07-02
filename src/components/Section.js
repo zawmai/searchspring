@@ -2,9 +2,12 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/system';
 
-/** MaterialUI styled component w/ emotion styling engine to make CSS rules object */
-const StyledGrid = styled(Grid)({
-  margin: '0 0 40px 0',
+/** MaterialUI styled component w/ emotion styling engine to insert CSS rules */
+const StyledGrid = styled(Grid, {
+  name: "StyledGrid",
+  slot: "section"
+})({
+  margin: "0 0 40px 0",
 })
 
 /**
