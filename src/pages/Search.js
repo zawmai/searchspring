@@ -59,8 +59,8 @@ function Search(props) {
 
 /** Make styled component w/ emotion styling engine to insert CSS rules */
 const StyledContainer = styled(Container, {
-    name: "StyledContainer",
-    slot: "searchpage"
+    name: "searchPage__container",
+    slot: "wrapper"
   })({
     padding: "40px 20px 40px 20px",
   });
