@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Paper from '@mui/material/Paper'
 import InputBase from '@mui/material/InputBase';
-import Button from '@mui/material/Button';
+import { Button } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { styled } from '@mui/system'
 
@@ -31,7 +31,7 @@ const StyledButton = styled(Button, {
 })({
   borderTopLeftRadius: 0,
   borderBottomLeftRadius: 0,
-})
+});
 
 const StyledParagrah = styled('p', {
   name: "searchBar__txtError",
@@ -52,7 +52,7 @@ const StyledParagrah = styled('p', {
  * } props 
  * @returns React JSX Component
  */
-function SearchBar(props) {
+ export default function SearchBar(props) {
 
   /** 
    * Use react-hook-form hook to create form methods to register inputs, 
@@ -100,17 +100,16 @@ function SearchBar(props) {
           variant="outlined"
           inputProps={{ 'aria-label': 'search product keywords' }}
         />
-        <StyledButton  
+        <StyledButton
           variant="contained" 
-          color="primary" 
           type="submit" 
           name="searchButton" 
-          aria-label="search">Search
+          aria-label="search"
+        >
+          Search
         </StyledButton>
       </StyledPaper>
       {errors.searchText && errors.searchText.message && <StyledParagrah>{errors.searchText.message}</StyledParagrah>}
     </React.Fragment>
   );
-}
-
-export default SearchBar;
+};
