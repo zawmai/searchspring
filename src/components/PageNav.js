@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Pagination from '@material-ui/lab/Pagination'
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 
 /**
